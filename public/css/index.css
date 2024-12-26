@@ -1,0 +1,328 @@
+        .dashboard-header {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Amiri', serif;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: #FFB200;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .nav-link:hover {
+            color: #F6F4F0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .navbar-brand img {
+            width: 100px;
+            height: auto;
+            
+        }
+
+        .content-wrapper {
+            margin-top: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin: 0;
+            border-radius: 0;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.708) 0%, rgba(0, 0, 0, 0.25) 100%);
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            padding-top: 20px;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            color: #FFB200;
+            font-size: 50px;
+            font-family: 'Amiri', serif;
+            font-weight: 400;
+            line-height: 57.34px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-description {
+            color: #F6F4F0;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            line-height: 28.80px;
+            text-transform: capitalize;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .about-title {
+            color: #FFB200;
+            font-size: 25px;
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            line-height: 28.80px;
+            margin-bottom: 10px;
+            padding-left: 50px;
+            padding-top: 70px;
+            font-style: italic;
+        }
+
+        .about-subtitle {
+            color: #FFB200;
+            font-size: 18px;
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            line-height: 24px;
+            margin-bottom: 20px;
+            padding-left: 50px;
+            font-style: italic;
+        }
+
+        .about-description {
+            color: #010404;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            line-height: 28.80px;
+            padding-left: 50px;
+            text-align: justify;
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-image-container {
+            position: relative;
+        }
+
+        .gallery-image-1 {
+            position: relative;
+            width: 274px;
+            height: 448px;
+        }
+
+        .gallery-image-2 {
+            position: relative;
+            width: 200px;
+            height: 332px;
+            margin-top: 60px;
+        }
+
+        .gallery-image-3 {
+            position: relative;
+            width: 180px;
+            height: 311px;
+            margin-top: 80px;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 95px;
+            object-fit: cover;
+        }
+
+        .packages-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .packages-title {
+            color: #3D3E48;
+            font-size: 27.65px;
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            line-height: 33.18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .packages-subtitle {
+            color: #295943;
+            font-size: 16px;
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            text-transform: capitalize;
+            line-height: 28.80px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .package-card {
+            background: white;
+            box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .package-image {
+            width: 100%;
+            height: 399px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+            display: block;
+        }
+
+        .package-content {
+            padding: 20px;
+        }
+
+        .package-name {
+            color: #3D3E48;
+            font-size: 19.20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 34.56px;
+            margin-bottom: 10px;
+        }
+
+        .package-price {
+            color: #295943;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 28.80px;
+            margin-bottom: 10px;
+        }
+
+        .package-duration {
+            color: #3D3E48;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            line-height: 25.20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-section {
+            background: #000e0f;
+            padding: 60px 0;
+            color: #FFB200;
+            font-family: 'Amiri', serif;
+        }
+
+        .footer-title {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 39.82px;
+        }
+
+        .footer-description {
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .contact-item {
+            padding: 5px 10px;
+            font-size: 13px;
+            font-weight: 400;
+            padding-top: 70px;
+            padding-left: 200px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 40px 0;
+            }
+            
+            .footer-title {
+                font-size: 28px;
+            }
+        }
+        .booking-section {
+            padding: 50px 0;
+        }
+        .section-title {
+            margin-bottom: 30px;
+        }
+        .booking-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+            margin-bottom: 20px;
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+        }
