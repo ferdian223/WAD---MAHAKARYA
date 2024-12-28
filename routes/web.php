@@ -5,9 +5,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\DocumentController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 })->name('index');
 
 Route::get('/login', function () {
@@ -37,3 +38,11 @@ Route::prefix('booking')->name('booking.')->group(function () {
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+
+#Fahad
+Route::get('/document', [DocumentController::class, 'docs'])->name('Document.index'); 
+Route::get('/document/create', [DocumentController::class, 'create'])->name('Document.create');
+Route::post('/document/save', [DocumentController::class, 'save'])->name('Document.save');
+Route::delete('/document/{id}', [DocumentController::class, 'destroy'])->name('document.destroy');
+Route::get('/document/{id}/edit', [DocumentController::class, 'edit'])->name('document.edit');
+Route::put('/document/{id}', [DocumentController::class, 'update'])->name('document.update');
