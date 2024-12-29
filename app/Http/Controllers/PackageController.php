@@ -21,7 +21,7 @@ class PackageController extends Controller
 
     public function store(Request $request)
     {
-
+        // Validate the form data
         $validated = $request->validate([
             'package_id' => 'required|numeric',
             'name' => 'required|string|max:255',
@@ -30,8 +30,10 @@ class PackageController extends Controller
             'passport_number' => 'required|string|max:20',
         ]);
 
+        // Get package details
         $package = $this->getPackageById($request->package_id);
 
+        // Create booking record
         Booking::create([
             'package_id' => $request->package_id,
             'package_name' => $package->name,
@@ -47,7 +49,7 @@ class PackageController extends Controller
 
     public function cart()
     {
-
+        // Get all bookings
         $bookings = Booking::orderBy('created_at', 'desc')->get();
 
         // Get all documents (untuk memastikan kalau mau proceed ke payment, data documets sudah diisi sebelumnya)
@@ -62,7 +64,7 @@ class PackageController extends Controller
 
     private function getPackageById($id)
     {
-
+        // Define package data
         $packages = [
             1 => [
                 'id' => 1,
@@ -72,12 +74,12 @@ class PackageController extends Controller
                 'guide' => 'Ustadz Ahmad',
                 'destination' => 'Makkah & Madinah',
                 'transportation' => 'Pesawat + Bus AC',
-                'main_image' => 'img/syawal (3).png',
+                'main_image' => 'img/book (2).jpg',
                 'gallery_images' => [
-                    'img/syawal (1).png',
-                    'img/syawal (2).png',
-                    'img/syawal (3).png',
-                    'img/syawal (1).png',
+                    'img/Book.jpg',
+                    'img/book (3).jpg',
+                    'img/book (4).jpg',
+                    'img/book (1).jpg',
                 ]
             ],
             2 => [
@@ -88,12 +90,12 @@ class PackageController extends Controller
                 'guide' => 'Ustadz Mahmud',
                 'destination' => 'Makkah & Madinah',
                 'transportation' => 'Pesawat + Bus AC',
-                'main_image' => 'img/syawal (1).png',
+                'main_image' => 'img/book (2).jpg',
                 'gallery_images' => [
-                    'img/syawal (1).png',
-                    'img/syawal (2).png',
-                    'img/syawal (3).png',
-                    'img/syawal (1).png',
+                    'img/Book.jpg',
+                    'img/book (3).jpg',
+                    'img/book (4).jpg',
+                    'img/book (1).jpg',
                 ]
             ],
             3 => [
@@ -104,12 +106,12 @@ class PackageController extends Controller
                 'guide' => 'Ustadz Ibrahim',
                 'destination' => 'Makkah & Madinah',
                 'transportation' => 'Pesawat + Bus AC VIP',
-                'main_image' => 'img/syawal (2).png',
+                'main_image' => 'img/book (2).jpg',
                 'gallery_images' => [
-                    'img/syawal (1).png',
-                    'img/syawal (2).png',
-                    'img/syawal (3).png',
-                    'img/syawal (1).png',
+                    'img/Book.jpg',
+                    'img/book (3).jpg',
+                    'img/book (4).jpg',
+                    'img/book (1).jpg',
                 ]
             ],
             4 => [
@@ -120,12 +122,12 @@ class PackageController extends Controller
                 'guide' => 'Ustadz Yusuf',
                 'destination' => 'Makkah & Madinah',
                 'transportation' => 'Pesawat + Bus AC',
-                'main_image' => 'img/promo (2).png',
+                'main_image' => 'img/book (2).jpg',
                 'gallery_images' => [
-                    'img/promo (1).png',
-                    'img/promo (2).png',
-                    'img/promo (3).png',
-                    'img/promo (1).png',
+                    'img/Book.jpg',
+                    'img/book (3).jpg',
+                    'img/book (4).jpg',
+                    'img/book (1).jpg',
                 ]
             ],
             5 => [
@@ -136,12 +138,12 @@ class PackageController extends Controller
                 'guide' => 'Ustadz Hamzah',
                 'destination' => 'Makkah & Madinah',
                 'transportation' => 'Pesawat + Bus AC',
-                'main_image' => 'img/promo (3).png',
+                'main_image' => 'img/book (2).jpg',
                 'gallery_images' => [
-                    'img/promo (1).png',
-                    'img/promo (2).png',
-                    'img/promo (3).png',
-                    'img/promo (1).png',
+                    'img/Book.jpg',
+                    'img/book (3).jpg',
+                    'img/book (4).jpg',
+                    'img/book (1).jpg',
                 ]
             ],
             6 => [
@@ -152,12 +154,12 @@ class PackageController extends Controller
                 'guide' => 'Ustadz Abdullah',
                 'destination' => 'Makkah & Madinah',
                 'transportation' => 'Pesawat + Bus AC VIP',
-                'main_image' => 'img/promo (1).png',
+                'main_image' => 'img/book (2).jpg',
                 'gallery_images' => [
-                    'img/promo (1).png',
-                    'img/promo (2).png',
-                    'img/promo (3).png',
-                    'img/promo (1).png',
+                    'img/Book.jpg',
+                    'img/book (3).jpg',
+                    'img/book (4).jpg',
+                    'img/book (1).jpg',
                 ]
             ],
             7 => [
@@ -168,12 +170,12 @@ class PackageController extends Controller
                 'guide' => 'Ustadz Umar',
                 'destination' => 'Makkah & Madinah',
                 'transportation' => 'Pesawat + Bus AC VIP',
-                'main_image' => 'img/november.png',
+                'main_image' => 'img/book (2).jpg',
                 'gallery_images' => [
-                    'img/november.png',
-                    'img/november.png',
-                    'img/november.png',
-                    'img/november.png',
+                    'img/Book.jpg',
+                    'img/book (3).jpg',
+                    'img/book (4).jpg',
+                    'img/book (1).jpg',
                 ]
             ]
         ];
