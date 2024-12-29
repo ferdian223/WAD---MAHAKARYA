@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Document;
 use Illuminate\Http\Request;
 
 class PackageController extends Controller
@@ -48,9 +49,14 @@ class PackageController extends Controller
     {
 
         $bookings = Booking::orderBy('created_at', 'desc')->get();
+
+        // Get all documents (untuk memastikan kalau mau proceed ke payment, data documets sudah diisi sebelumnya)
+        $documents = Document::orderBy('user_id', 'desc')->get();
+
         
         return view('booking.cart', [
-            'bookings' => $bookings
+            'bookings' => $bookings,
+            'documents' => $documents
         ]);
     }
 

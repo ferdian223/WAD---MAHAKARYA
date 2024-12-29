@@ -25,6 +25,7 @@
                     <a href="{{ route('booking.cart') }}" class="nav-link">
                         <i class="bi bi-cart"></i> Cart
                     </a>
+                    <a href="{{ route('Document.index') }}" class="nav-link">Document</a>
                 </nav>
             </div>
         </div>

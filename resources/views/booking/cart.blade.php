@@ -27,6 +27,7 @@
                     <a href="{{ route('booking.cart') }}" class="nav-link">
                         <i class="bi bi-cart"></i> Cart
                     </a>
+                    <a href="{{ route('Document.index') }}" class="nav-link">Document</a>
                 </nav>
             </div>
         </div>
@@ -94,9 +95,19 @@
                     <a href="{{ route('booking.index') }}" class="btn btn-secondary me-2">
                         <i class="bi bi-arrow-left"></i> Continue Shopping
                     </a>
-                    <button class="btn btn-success">
+                    @if(count($documents) > 0)
+                    <!-- Button akan mengarah ke halaman payment -->
+                    <a class="btn btn-success">
+                         <i class="bi bi-check2-circle"></i> Proceed to Checkout
+                    </a>
+                    @else
+                    <!-- Button akan mengeluarkan alert dan mengarahkan user ke halaman dokumen untuk mengisi dokumen terlebih dahulu -->
+
+                    <button  class="btn btn-success" onclick="alertAndRedirect()">
                         <i class="bi bi-check2-circle"></i> Proceed to Checkout
                     </button>
+                    @endif
+
                 </div>
             </div>
         @else
@@ -126,5 +137,18 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+    function alertAndRedirect() {
+
+        const userConfirmed = window.confirm('Dokumen persyaratan Anda belum lengkap. Mohon isi dokumen persyaratan Anda terlebih dahulu');
+
+        if (userConfirmed) {
+             window.location.href = "{{ route('Document.index') }}"; // Redirect ke halaman Dokumen.index untuk isi dokumen
+         }
+    }
+
+    </script>
+
 </body>
 </html> 
