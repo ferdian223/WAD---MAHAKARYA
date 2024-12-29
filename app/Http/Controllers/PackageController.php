@@ -20,7 +20,7 @@ class PackageController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the form data
+
         $validated = $request->validate([
             'package_id' => 'required|numeric',
             'name' => 'required|string|max:255',
@@ -29,10 +29,8 @@ class PackageController extends Controller
             'passport_number' => 'required|string|max:20',
         ]);
 
-        // Get package details
         $package = $this->getPackageById($request->package_id);
 
-        // Create booking record
         Booking::create([
             'package_id' => $request->package_id,
             'package_name' => $package->name,
@@ -48,7 +46,7 @@ class PackageController extends Controller
 
     public function cart()
     {
-        // Get all bookings
+
         $bookings = Booking::orderBy('created_at', 'desc')->get();
         
         return view('booking.cart', [
@@ -58,7 +56,7 @@ class PackageController extends Controller
 
     private function getPackageById($id)
     {
-        // Define package data
+
         $packages = [
             1 => [
                 'id' => 1,

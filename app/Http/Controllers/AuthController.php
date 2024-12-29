@@ -20,7 +20,6 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Log login activity
             \DB::table('login_logs')->insert([
                 'user_id' => Auth::id(),
                 'login_time' => now(),

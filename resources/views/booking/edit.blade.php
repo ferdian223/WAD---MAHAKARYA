@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
 <body>
-    <!-- Header -->
+
     <header class="dashboard-header">
         <div class="container">
             <div class="header-container">
@@ -30,7 +30,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+
     <div class="container" style="margin-top: 100px;">
         <h2 class="mb-4">Edit Booking</h2>
 
@@ -94,7 +94,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-dark text-white mt-5">
         <div class="container-fluid px-5 py-4">
             <div class="row">

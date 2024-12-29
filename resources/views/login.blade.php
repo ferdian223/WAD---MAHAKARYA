@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Datang</title>
+    <title>Mahakarya Travel</title>
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body>

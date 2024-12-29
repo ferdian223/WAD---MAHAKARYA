@@ -5,6 +5,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\BookingController;
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,3 +42,5 @@ Route::prefix('booking')->name('booking.')->group(function () {
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+
+Route::get('/booking/{booking}/export-pdf', [BookingController::class, 'exportPDF'])->name('booking.export-pdf');

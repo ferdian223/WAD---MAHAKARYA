@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
 <body>
- <!-- Header -->
+
      <header class="dashboard-header">
         <div class="container">
             <div class="header-container">
-                <!-- Logo -->
+              
                 <a class="navbar-brand" href="{{ route('index') }}">
                     <img src="{{ asset('img/logo2.png') }}" alt="Logo">
                 </a>
                 
-                <!-- Navigation -->
+             
                 <nav class="nav-links">
                     <a href="#" class="nav-link">About</a>
                     <a href="#" class="nav-link">Service</a>
@@ -32,11 +32,11 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+
     <div class="container-fluid px-5 py-4" style="margin-top: 100px;">
         <h4 class="mb-4">{{ $package->name }}</h4>
         
-        <!-- Image Gallery -->
+   
         <div class="row mb-5">
             <div class="col-md-6">
                 <img src="{{ asset($package->main_image) }}" class="img-fluid rounded w-100 main-image" alt="Main Image">
@@ -52,13 +52,13 @@
             </div>
         </div>
 
-        <!-- Package Details -->
+
         <div class="row mb-5">
             <div class="col-md-8">
                 <h2 class="mb-4">{{ $package->name }}</h2>
                 <p class="text-secondary">{{ $package->description }}</p>
 
-                <!-- Package Info -->
+   
                 <div class="package-info mb-4">
                     <div class="info-item mb-3">
                         <i class="bi bi-person"></i>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
 
-                <!-- Facilities -->
+
                 <h5 class="mb-3">What this place offers</h5>
                 <div class="row g-3 mb-5">
                     <div class="col-md-6">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
 
-                <!-- Booking Form -->
+   
                 <form action="{{ route('booking.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="package_id" value="{{ $package->id }}">
@@ -174,7 +174,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+
     <footer class="bg-dark text-white">
         <div class="container-fluid px-5 py-4">
             <div class="row">

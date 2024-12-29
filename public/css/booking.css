@@ -50,5 +50,13 @@
     font-family: 'Amiri', serif;
     color: #010103;
 }
-
-
+.container p {
+    font-family: 'Amiri', serif;
+    color: #000000;
+}
+.contact-item {
+    color: #fffcfc;
+}
+.col-lg-6 {
+    color: #fffcfc;
+}
