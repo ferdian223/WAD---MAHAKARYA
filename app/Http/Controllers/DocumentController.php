@@ -13,9 +13,10 @@ class DocumentController extends Controller
         return view('Document.create');
     }
 
+
     public function docs()
     {
-        $documents = Document::orderBy('created_at', 'desc')->get();
+        $documents = Document::orderBy('user_id', 'desc')->get();
 
         foreach ($documents as $document) {
             $document->passport_foto_name = basename($document->passport_foto); 
@@ -23,10 +24,11 @@ class DocumentController extends Controller
             $document->foto_identitas_name = basename($document->foto_identitas); 
         }
 
-        return view('document.index', [
+        return view('Document.index', [
             'documents' => $documents, 
         ]);
     }
+
 
     public function save(Request $request)
     {
@@ -36,10 +38,12 @@ class DocumentController extends Controller
             'foto_identitas' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
     
+        // menyimpan path dari file yang di upload
         $passportPath = $request->file('passport_foto')->store('documents', 'public');
         $ktpPath = $request->file('ktp_foto')->store('documents', 'public');
         $identitasPath = $request->file('foto_identitas')->store('documents', 'public');
     
+        // menyimpan path file yang di upload ke database
         Document::create([
             'user_id' => auth()->id(), 
             'passport_foto' => $passportPath,
@@ -47,20 +51,15 @@ class DocumentController extends Controller
             'foto_identitas' => $identitasPath,
         ]);
     
-        return redirect()->route('document.index')->with('success', 'Data berhasil ditambahkan!');
+        return redirect()->route('Document.index')->with('success', 'Data berhasil ditambahkan!!');
     }
 
     public function destroy($id)
     {
         $document = Document::findOrFail($id);
-        
-        Storage::disk('public')->delete($document->passport_foto);
-        Storage::disk('public')->delete($document->ktp_foto);
-        Storage::disk('public')->delete($document->foto_identitas);
-        
         $document->delete();
         
-        return redirect()->route('document.index')->with('success', 'Document berhasil dihapus!');
+        return redirect()->route('Document.index')->with('success', 'Document berhasil dihapus dari keranjang!');
     }
 
     public function edit($id)
@@ -70,35 +69,41 @@ class DocumentController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $document = Document::findOrFail($id);
+{
+    $document = Document::findOrFail($id);
 
-        $validated = $request->validate([
-            'passport_foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'ktp_foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'foto_identitas' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
+    $validated = $request->validate([
+        'passport_foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        'ktp_foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        'foto_identitas' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
 
-        if ($request->hasFile('ktp_foto')) {
-            Storage::disk('public')->delete($document->ktp_foto);
-            $ktpPath = $request->file('ktp_foto')->store('documents', 'public');
-            $document->ktp_foto = $ktpPath;
-        }
-
-        if ($request->hasFile('passport_foto')) {
-            Storage::disk('public')->delete($document->passport_foto);
-            $passportPath = $request->file('passport_foto')->store('documents', 'public');
-            $document->passport_foto = $passportPath;
-        }
-
-        if ($request->hasFile('foto_identitas')) {
-            Storage::disk('public')->delete($document->foto_identitas);
-            $identityPath = $request->file('foto_identitas')->store('documents', 'public');
-            $document->foto_identitas = $identityPath;
-        }
-
-        $document->save();
-
-        return redirect()->route('document.index')->with('success', 'Document berhasil diperbarui!');
+    if ($request->hasFile('ktp_foto')) {
+        $ktpPath = $request->file('ktp_foto')->store('documents', 'public');
+        $document->ktp_foto = $ktpPath;
+    } else {
+        $document->ktp_foto = $request->input('old_ktp_foto');
     }
+
+    if ($request->hasFile('passport_foto')) {
+        $passportPath = $request->file('passport_foto')->store('documents', 'public');
+        $document->passport_foto = $passportPath;
+    } else {
+        $document->passport_foto = $request->input('old_passport_foto');
+    }
+
+    if ($request->hasFile('foto_identitas')) {
+        $identityPath = $request->file('foto_identitas')->store('documents', 'public');
+        $document->foto_identitas = $identityPath;
+    } else {
+        $document->foto_identitas = $request->input('old_foto_identitas');
+    }
+
+
+    $document->save();
+
+    return redirect()->route('Document.index') ->with('success', 'Document berhasil diperbarui!');
 }
+
+    
+} 
