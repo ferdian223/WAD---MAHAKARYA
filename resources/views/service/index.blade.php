@@ -10,33 +10,36 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
 <body>
-
+    <!-- Header -->
     <header class="dashboard-header">
         <div class="container">
             <div class="header-container">
- 
+                <!-- Logo -->
                 <a class="navbar-brand" href="{{ route('index') }}">
                     <img src="{{ asset('img/logo2.png') }}" alt="Logo">
                 </a>
-
+                
+                <!-- Navigation -->
                 <nav class="nav-links">
                     <a href="{{ route('about.index') }}" class="nav-link">About</a>
                     <a href="{{ route('service.index') }}" class="nav-link">Service</a>
                     <a href="{{ route('booking.index') }}" class="nav-link">Booking</a>
+                    <a href="{{ route('feedback.index') }}" class="nav-link">Feedback</a>
                     <a href="{{ route('booking.cart') }}" class="nav-link">
                         <i class="bi bi-cart"></i> Cart
                     </a>
-                    <a href="{{ route('Document.index') }}" class="nav-link">Document</a>
                 </nav>
             </div>
         </div>
     </header>
 
+    <!-- Main Content -->
     <div class="container" style="margin-top: 100px;">
         <h2 class="text-center mb-5">Our Services</h2>
 
+        <!-- Services Grid -->
         <div class="row g-4">
-
+            <!-- Umrah Service -->
             <div class="col-md-6">
                 <div class="card h-100">
                     <img src="{{ asset('img/gambar (1).jpg') }}" class="card-img-top" alt="Umrah Service">
@@ -55,7 +58,7 @@
                 </div>
             </div>
 
-
+            <!-- Haji Service -->
             <div class="col-md-6">
                 <div class="card h-100">
                     <img src="{{ asset('img/oi.jpg') }}" class="card-img-top" alt="Haji Service">
@@ -65,16 +68,16 @@
                             Layanan haji kami mencakup:
                         </p>
                         <ul class="list-unstyled">
-                            <li><i class="bi bi-check-circle text-success"></i> umrah Reguler</li>
-                            <li><i class="bi bi-check-circle text-success"></i> umrah Plus</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Konsultasi umrah</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Haji Reguler</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Haji Plus</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Konsultasi Haji</li>
                             <li><i class="bi bi-check-circle text-success"></i> Pendampingan Penuh</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-
+            <!-- Additional Services -->
             <div class="col-md-6">
                 <div class="card h-100">
                     <div class="card-body">
@@ -93,7 +96,7 @@
                 </div>
             </div>
 
-
+            <!-- Customer Support -->
             <div class="col-md-6">
                 <div class="card h-100">
                     <div class="card-body">
@@ -114,7 +117,7 @@
         </div>
     </div>
 
-
+    <!-- Footer -->
     <footer class="bg-dark text-white mt-5">
         <div class="container-fluid px-5 py-4">
             <div class="row">
