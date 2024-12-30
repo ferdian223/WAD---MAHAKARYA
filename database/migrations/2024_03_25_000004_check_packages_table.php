@@ -8,9 +8,9 @@ class CheckPackagesTable extends Migration
 {
     public function up()
     {
-
+        // Cek apakah tabel packages sudah ada
         if (Schema::hasTable('packages')) {
-
+            // Cek kolom yang sudah ada
             Schema::table('packages', function (Blueprint $table) {
                 if (!Schema::hasColumn('packages', 'description')) {
                     $table->text('description')->nullable();
@@ -29,7 +29,7 @@ class CheckPackagesTable extends Migration
                 }
             });
         } else {
-
+            // Buat tabel baru jika belum ada
             Schema::create('packages', function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
