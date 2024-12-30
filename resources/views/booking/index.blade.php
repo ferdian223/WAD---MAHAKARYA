@@ -38,23 +38,24 @@
     </style>
 </head>
 <body>
-
+    <!-- Header with logo -->
     <header class="dashboard-header">
         <div class="container">
             <div class="header-container">
-
+                <!-- Logo -->
                 <a class="navbar-brand" href="{{ route('index') }}">
                     <img src="{{ asset('img/logo2.png') }}" alt="Logo">
                 </a>
                 
+                <!-- Navigation -->
                 <nav class="nav-links">
                     <a href="{{ route('about.index') }}" class="nav-link">About</a>
                     <a href="{{ route('service.index') }}" class="nav-link">Service</a>
                     <a href="{{ route('booking.index') }}" class="nav-link">Booking</a>
+                    <a href="{{ route('feedback.index') }}" class="nav-link">Feedback</a>
                     <a href="{{ route('booking.cart') }}" class="nav-link">
                         <i class="bi bi-cart"></i> Cart
                     </a>
-                    <a href="{{ route('Document.index') }}" class="nav-link">Document</a>
                 </nav>
             </div>
         </div>
@@ -64,7 +65,7 @@
         <div class="container">
             <h2 class="text-center mb-4 pt-5">Paket Umrah Mahakarya Travel</h2>
 
-
+            <!-- Program Syawal -->
             <div class="program-section mb-5">
                 <h4 class="text-center text-success mb-4">Program Syawal</h4>
                 <div class="row justify-content-center g-4">
@@ -101,10 +102,10 @@
                 </div>
             </div>
 
-
+            <!-- Program Promo -->
             <div class="program-section mb-5">
                 <h4 class="text-center text-success mb-4">Program Promo</h4>
-
+                <!-- Row pertama dengan 3 card -->
                 <div class="row justify-content-center g-4 mb-4">
                 <div class="col-md-4">
                         <div class="package-card">
@@ -138,6 +139,7 @@
                     </div>
                 </div>
 
+            <!-- Program November -->
             <div class="program-section mb-5">
                 <h4 class="text-center text-success mb-4">Program November</h4>
                 <div class="row justify-content-center g-4">
@@ -155,18 +157,18 @@
         </div>
     </div>
 
-
+   <!-- Footer Section -->
    <footer class="footer-section">
         <div class="container">
             <div class="row">
-
+                <!-- Company Info Column -->
                 <div class="col-lg-6">
                     <h2 class="footer-title">Mahakarya</h2>
                     <p class="footer-description">Mahakarya memnjadi saranan perjalanan internasional sejak pendirianya merupakan badan usaha jasa Penyelenggara Perjalanan Ibadah dan Perjalanan Wisata berizin resmi berdasarkan perijinan yang dikeluarkan oleh Pemerintah Republik Indonesia    
                     </p>
                 </div>
 
-
+                <!-- Contact Info Column -->
                 <div class="col-lg-6">
                         <div class="contact-item">
                             <span>©2024 Mahakarya Group. All right reserved.</span>

@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ServiceController;
+
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DocumentController;
 
@@ -12,8 +13,9 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+
 Route::get('/', function () {
-    return view('login');
+    return view('welcome');
 })->name('index');
 
 Route::get('/login', function () {
@@ -44,6 +46,7 @@ Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
 
+
 Route::get('/booking/{booking}/export-pdf', [BookingController::class, 'exportPDF'])->name('booking.export-pdf');
 
 Route::get('/document', [DocumentController::class, 'index'])->name('Document.index');
@@ -55,3 +58,4 @@ Route::put('/document/{id}', [DocumentController::class, 'update'])->name('docum
 
 Route::get('/documents', [DocumentController::class, 'index']);
 // Add other routes as needed
+

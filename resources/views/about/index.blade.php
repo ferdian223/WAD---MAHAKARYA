@@ -30,10 +30,10 @@
                     <a href="{{ route('about.index') }}" class="nav-link">About</a>
                     <a href="{{ route('service.index') }}" class="nav-link">Service</a>
                     <a href="{{ route('booking.index') }}" class="nav-link">Booking</a>
+                    <a href="{{ route('feedback.index') }}" class="nav-link">Feedback</a>
                     <a href="{{ route('booking.cart') }}" class="nav-link">
                         <i class="bi bi-cart"></i> Cart
                     </a>
-                    <a href="{{ route('Document.index') }}" class="nav-link">Document</a>
                 </nav>
             </div>
         </div>
