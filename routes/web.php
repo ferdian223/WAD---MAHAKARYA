@@ -9,6 +9,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\SeminarController;
+use App\Http\Controllers\ConsultationController;
 
 Route::get('/', function () {
     return view('login');
@@ -66,5 +67,12 @@ Route::get('/document/{id}/edit', [DocumentController::class, 'edit'])->name('do
 Route::put('/document/{id}', [DocumentController::class, 'update'])->name('document.update');
 
 Route::get('/documents', [DocumentController::class, 'index']);
+
+Route::get('/consultations', [ConsultationController::class, 'schedule'])->name('consultations.schedule');
+Route::get('/consultations', function () {
+    return view('consultations.schedule');
+})->name('consultations.schedule');
+Route::post('/consultations/store', [ConsultationController::class, 'store'])->name('consultations.store');
+Route::get('/consultations', [ConsultationController::class, 'schedule'])->name('consultations.schedule');
 
 

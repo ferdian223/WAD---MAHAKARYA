@@ -34,6 +34,7 @@
                         <i class="bi bi-cart"></i> Cart
                     </a>
                     <a href="{{ route('Seminar.index') }}" class="nav-link">Seminar</a>
+                    <a href="{{ route('consultations.schedule') }}" class="nav-link">Consultation</a>
                     <a href="{{ route('feedback') }}" class="nav-link">Feedback</a>
                 </nav>
             </div>

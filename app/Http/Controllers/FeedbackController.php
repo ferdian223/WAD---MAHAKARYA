@@ -19,22 +19,23 @@ class FeedbackController extends Controller
         $feedback->name = $request->name;
         $feedback->message = $request->message;
         $feedback->save();
-
+    
         return redirect()->route('feedback');
     }
-
+    
     public function destroy(Feedback $feedback)
     {
         $feedback->delete();
         return redirect()->route('feedback');
     }
-
+    
     public function update(Request $request, Feedback $feedback)
     {
         $feedback->name = $request->name;
         $feedback->message = $request->message;
         $feedback->save();
-
-        return redirect()->route('feedback');
+    
+        return redirect()->route('feedback'); 
     }
+    
 }
