@@ -68,6 +68,7 @@
                     <a href="{{ route('booking.cart') }}" class="nav-link">
                         <i class="bi bi-cart"></i> Cart
                     </a>
+                    <a href="{{ route('Seminar.index') }}" class="nav-link">Seminar</a>
                 </nav>
             </div>
         </div>

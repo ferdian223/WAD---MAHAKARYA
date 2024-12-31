@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\SeminarController;
 
 Route::get('/', function () {
     return view('login');
@@ -27,6 +28,15 @@ Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback');
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 Route::put('/feedback/{feedback}', [FeedbackController::class, 'update'])->name('feedback.update');
 Route::delete('/feedback/{feedback}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
+
+Route::get('/seminar', [SeminarController::class, 'index'])->name('Seminar.index');
+Route::get('/seminar/create', [SeminarController::class, 'create'])->name('Seminar.create');
+Route::post('/seminar/store', [SeminarController::class, 'store'])->name('Seminar.store');
+Route::get('/seminar/{id}', [SeminarController::class, 'show'])->name('Seminar.show');
+Route::get('/seminar/{id}/edit', [SeminarController::class, 'edit'])->name('Seminar.edit');
+Route::put('/seminar/{id}', [SeminarController::class, 'update'])->name('Seminar.update');
+Route::delete('/seminar/{id}', [SeminarController::class, 'destroy'])->name('Seminar.destroy');
+
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
@@ -56,3 +66,5 @@ Route::get('/document/{id}/edit', [DocumentController::class, 'edit'])->name('do
 Route::put('/document/{id}', [DocumentController::class, 'update'])->name('document.update');
 
 Route::get('/documents', [DocumentController::class, 'index']);
+
+

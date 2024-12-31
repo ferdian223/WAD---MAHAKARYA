@@ -32,7 +32,8 @@
                     <a href="{{ route('booking.index') }}" class="nav-link">Booking</a>
                     <a href="{{ route('booking.cart') }}" class="nav-link">
                         <i class="bi bi-cart"></i> Cart
-                    </a>   
+                    </a>
+                    <a href="{{ route('Seminar.index') }}" class="nav-link">Seminar</a>
                     <a href="{{ route('feedback') }}" class="nav-link">Feedback</a>
                 </nav>
             </div>
