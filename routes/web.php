@@ -6,10 +6,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BookingController;
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\FeedbackController;
 
 Route::get('/', function () {
     return view('login');
@@ -25,10 +23,15 @@ Route::get('/index', function () {
     return view('index');
 })->name('index')->middleware('auth');
 
+Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback');
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::put('/feedback/{feedback}', [FeedbackController::class, 'update'])->name('feedback.update');
+Route::delete('/feedback/{feedback}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
+
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 
-// Package Routes
+
 Route::prefix('booking')->name('booking.')->group(function () {
     Route::get('/', [PackageController::class, 'index'])->name('index');
     Route::get('/create/{id}', [PackageController::class, 'create'])->name('create');
@@ -44,3 +47,12 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.index
 Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
 
 Route::get('/booking/{booking}/export-pdf', [BookingController::class, 'exportPDF'])->name('booking.export-pdf');
+
+Route::get('/document', [DocumentController::class, 'index'])->name('Document.index');
+Route::get('/document/create', [DocumentController::class, 'create'])->name('Document.create');
+Route::post('/document/save', [DocumentController::class, 'save'])->name('Document.save');
+Route::delete('/document/{id}', [DocumentController::class, 'destroy'])->name('document.destroy');
+Route::get('/document/{id}/edit', [DocumentController::class, 'edit'])->name('document.edit');
+Route::put('/document/{id}', [DocumentController::class, 'update'])->name('document.update');
+
+Route::get('/documents', [DocumentController::class, 'index']);

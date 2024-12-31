@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') Travel Dashboard</title>
     
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     
+    <!-- Custom CSS -->
     
     @stack('prepend-style')
     @stack('addon-style')
 </head>
 <body>
+    <!-- Header -->
     <header class="dashboard-header">
         <div class="container">
             <div class="header-container">
+                <!-- Logo -->
                 <a class="navbar-brand" href="{{ route('index') }}">
                     <img src="{{ asset('img/logo2.png') }}" alt="Logo">
                 </a>
                 
+                <!-- Navigation -->
                 <nav class="nav-links">
                     <a href="{{ route('about.index') }}" class="nav-link">About</a>
                     <a href="{{ route('service.index') }}" class="nav-link">Service</a>
                     <a href="{{ route('booking.index') }}" class="nav-link">Booking</a>
                     <a href="{{ route('booking.cart') }}" class="nav-link">
                         <i class="bi bi-cart"></i> Cart
-                    </a>
-                    <a href="{{ route('Document.index') }}" class="nav-link">Document</a>
+                    </a>   
+                    <a href="{{ route('feedback') }}" class="nav-link">Feedback</a>
                 </nav>
             </div>
         </div>
     </header>
 
+    <!-- Main Content -->
     <div class="content-wrapper">
+        <!-- Image Container with Gradient -->
         <div class="image-container" style="background-image: url('{{ asset('img/background2.jpg') }}'); background-size: cover; background-position: center;">
             <div class="gradient-overlay"></div>
-
+            
+            <!-- Hero Content -->
             <div class="hero-content">
                 <div class="hero-title">
                     Perjalanan spiritual menuju Tanah Suci
@@ -80,14 +88,14 @@
             </div>
         </section>
 
-
+        <!-- Packages Section -->
         <section class="packages-section">
             <div class="container">
                 <h2 class="packages-title">Paket Umroh Tersedia</h2>
                 <h3 class="packages-subtitle">Program Syawal</h3>
                 
                 <div class="row">
- 
+                    <!-- Package Card 1 -->
                     <div class="col-lg-4">
                         <div class="package-card">
                             <img src="{{ asset('img/syawal (3).png') }}" alt="Program Syawal" class="package-image">
@@ -102,7 +110,7 @@
                         </div>
                     </div>
 
-
+                    <!-- Package Card 2 -->
                     <div class="col-lg-4">
                         <div class="package-card">
                             <img src="{{ asset('img/syawal (1).png') }}" alt="Langkah Menuju Fitrah" class="package-image">
@@ -117,6 +125,7 @@
                         </div>
                     </div>
 
+                    <!-- Package Card 3 -->
                     <div class="col-lg-4">
                         <div class="package-card">
                             <img src="{{ asset('img/syawal (2).png') }}" alt="Package 3" class="package-image">
